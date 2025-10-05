@@ -1,0 +1,21 @@
+import re
+def is_palindrome(s: str, ignore_non_alnum: bool = True) -> bool:
+    if ignore_non_alnum:
+        # keep only letters and digits, then lowercase
+        cleaned = re.sub(r'[^A-Za-z0-9]', '', s).lower()
+    else:
+        cleaned = s
+    return cleaned == cleaned[::-1]
+
+def main():
+    s = input("Enter a string or number: ")
+    # treat negative numbers as not palindrome (common convention)
+    if s.startswith('-') and s[1:].isdigit():
+        print(f"❌ {s} is not a palindrome (negative numbers are not considered).")
+        return
+    if is_palindrome(s):
+        print(f"✅ '{s}' is a palindrome.")
+    else:
+        print(f"❌ '{s}' is not a palindrome.")
+if __name__ == "__main__":
+    main()
