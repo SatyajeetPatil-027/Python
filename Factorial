@@ -1,0 +1,40 @@
+"""
+factorial.py
+
+This script calculates the factorial of a non-negative integer
+entered by the user.
+
+Author: [Your Name]
+Date: [Date]
+"""
+
+def factorial(n):
+    """
+    Calculate the factorial of a non-negative integer using iteration.
+
+    Parameters:
+        n (int): A non-negative integer
+
+    Returns:
+        int: Factorial of n
+    """
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
+
+def main():
+    """
+    Main function to get user input and display the factorial.
+    """
+    try:
+        num = int(input("Enter a non-negative integer: "))
+        if num < 0:
+            print("Error: Factorial is not defined for negative numbers.")
+        else:
+            print(f"The factorial of {num} is: {factorial(num)}")
+    except ValueError:
+        print("Invalid input. Please enter an integer.")
+
+if __name__ == "__main__":
+    main()
